@@ -1,6 +1,5 @@
 import uvicorn
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -15,7 +14,7 @@ def info(query: str):
 @app.post("/info/add")
 async def add_info(req: Request):
     data = await req.json()
-    return {"detail": f"Look at this {data['resource']}", "status":"added resource"}
+    return {"detail": f"Look at this {data['resource']}", "msg":"added resource"}
 
 if __name__ == "__main__":
     # Runs the FastAPI application only if the app.py file is being run.
