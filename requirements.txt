@@ -23,9 +23,7 @@ decorator==5.1.0
 deep-translator==1.5.4
 defusedxml==0.7.1
 Deprecated==1.2.13
-en-core-web-sm==2.3.1
 entrypoints==0.3
-es-core-news-sm==2.3.1
 fastapi==0.68.1
 filelock==3.3.0
 ftfy==6.0.3
