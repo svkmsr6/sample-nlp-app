@@ -14,7 +14,7 @@ def info(query: str):
 @app.post("/info/add")
 async def add_info(req: Request):
     data = await req.json()
-    return {"detail": f"Look at this {data['resource']}", "msg":"added resource"}
+    return {"detail": f"Look at that {data['resource']}", "msg":"added resource"}
 
 if __name__ == "__main__":
     # Runs the FastAPI application only if the app.py file is being run.
