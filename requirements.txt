@@ -34,6 +34,7 @@ PyYAML==5.4.1
 redis==3.5.3
 regex==2021.9.30
 requests==2.26.0
+river==0.8.0
 ruamel.yaml==0.15.100
 scikit-learn==1.0.0
 setuptools==58.0.4
