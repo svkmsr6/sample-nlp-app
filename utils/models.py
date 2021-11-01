@@ -38,7 +38,7 @@ class CategorizerModel:
         self.pipe_nb = self.pipe_nb.learn_one(text,label)
         self.metric = self.metric.update(label, y_pred)
         return {
-            'metric':{
+            'metrics':{
                 'new':f"{self.metric}",
                 'old': f"{init_metric}"
             }
