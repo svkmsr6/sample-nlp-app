@@ -43,3 +43,16 @@ class CategorizerModel:
                 'old': f"{init_metric}"
             }
         }
+
+    def train_model_in_streams(self,train_set):
+        init_metric = copy.deepcopy(self.metric)
+        for text,label in train_set.items():
+            y_pred = self.pipe_nb.predict_one(text)
+            self.pipe_nb = self.pipe_nb.learn_one(text,label)
+            self.metric = self.metric.update(label, y_pred)
+        return {
+            'metric':{
+                'new':f"{self.metric}",
+                'old': f"{init_metric}"
+            }
+        }

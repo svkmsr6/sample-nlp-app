@@ -24,6 +24,11 @@ async def predict_category(req: Request):
     data = await req.json()
     return model.train_model(data['text'],data['label'])
 
+@app.post("/model/train/stream")
+async def predict_category(req: Request):
+    data = await req.json()
+    return model.train_model_in_streams(data['train_set'])
+
 if __name__ == "__main__":
     # Runs the FastAPI application only if the app.py file is being run.
     print('Starting server at port 8000')
