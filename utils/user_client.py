@@ -27,5 +27,8 @@ class RandomUserClient:
             blob_data.readinto(my_blob)
         self.df = pd.read_json('./data/data.json')
 
-    def get_users(self,query):
-        return json.loads(self.df.to_json(orient='records'))
+    def get_users(self,query,field):
+        if not (query and field):
+            return json.loads(self.df.to_json(orient='records'))
+        else:
+            return json.loads(self.df.loc[self.df[field].apply(str.lower).str.contains(query.lower())].to_json(orient='records'))

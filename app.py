@@ -12,9 +12,9 @@ model = CategorizerModel()
 
 ru_client = RandomUserClient()
 
-@app.get("/read/user")
-def get_user(q:str=''):
-    return ru_client.get_users(q)
+@app.get("/read/users")
+def get_user(q:str='',f:str=''):
+    return ru_client.get_users(query=q, field=f)
 
 @app.get("/model/metric")
 def get_metric():
