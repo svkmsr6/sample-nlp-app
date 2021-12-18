@@ -1,8 +1,9 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sample-nlp-app
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: sample-nlp-app
@@ -14,7 +15,7 @@ spec:
       containers:
       - name: sample-nlp-app
         image: svkk8sacr.azurecr.io/svkmsr6/sample-nlp-app
-	      imagePullPolicy: Always
+        imagePullPolicy: Always
         resources:
           requests:
             cpu: 250m
@@ -30,10 +31,11 @@ kind: Service
 metadata:
   name: sample-nlp-app
 spec:
-  type: ClusterIP
   ports:
   - port: 80
-    targetPort: 80
     protocol: TCP
+    targetPort: 80
+  externalIPs:
+    - 1.2.4.120
   selector:
     app: sample-nlp-app
